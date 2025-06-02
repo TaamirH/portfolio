@@ -240,7 +240,6 @@
             border-radius: 50%;
             overflow: hidden;
             margin: 0 auto;
-            animation: float 3s ease-in-out infinite;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
@@ -382,7 +381,7 @@
 
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -393,25 +392,39 @@
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            text-align: center;
         }
 
         .contact-item:hover {
             transform: translateY(-5px);
         }
 
+        .contact-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
         .contact-item h4 {
             color: #667eea;
             margin-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
 
         .contact-item a {
             color: #333;
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
 
         .contact-item a:hover {
             color: #667eea;
+        }
+
+        .contact-item span {
+            color: #333;
+            font-weight: 500;
         }
 
         /* Footer */
@@ -431,15 +444,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
             }
         }
 
@@ -478,6 +482,10 @@
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -520,8 +528,8 @@
         <canvas id="particles"></canvas>
         <div class="hero-content">
             <h1>Tamir Hadad</h1>
-            <div class="subtitle">Full-Stack Developer & Computer Scientist</div>
-            <p>Crafting innovative solutions with React, Firebase, and modern web technologies</p>
+            <div class="subtitle">Full-Stack Developer & DevOps Engineer</div>
+            <p>Building scalable applications and robust infrastructure with modern technologies</p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -539,28 +547,28 @@
                     </div>
                 </div>
                 <div class="about-text">
-                    <h3>React Developer & Computer Science Graduate</h3>
-                    <p>I'm a passionate full-stack developer and recent Computer Science graduate from Ben Gurion University. With 6+ years of IT management experience and a strong foundation in modern web technologies, I specialize in creating scalable, user-focused solutions.</p>
-                    <p>My expertise spans from React development and Firebase integration to cloud infrastructure management on AWS and Azure. I'm particularly interested in emergency response systems and have developed AeroAid, a real-time drone coordination platform.</p>
-                    <p>When I'm not coding, I'm exploring new technologies, contributing to open-source projects, or working on solutions that can make a real difference in people's lives.</p>
+                    <h3>Full-Stack Developer & DevOps Engineer</h3>
+                    <p>I'm a passionate full-stack developer and recent Computer Science graduate from Ben Gurion University. With 6+ years of IT management experience, I specialize in building scalable web applications and managing cloud infrastructure.</p>
+                    <p>My expertise spans from React development and modern JavaScript frameworks to cloud infrastructure management on AWS and Azure. I have hands-on experience with containerization, CI/CD pipelines, and automated deployment strategies that ensure reliable, scalable solutions.</p>
+                    <p>I'm particularly interested in creating systems that bridge the gap between development and operations, ensuring seamless deployment and monitoring of applications in production environments.</p>
                 </div>
             </div>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h4>Frontend Development</h4>
-                    <p>React, Context API, Tailwind CSS, HTML5, CSS3, Responsive Design</p>
+                    <p>React, JavaScript/ES6+, TypeScript, HTML5, CSS3, Tailwind CSS, Responsive Design</p>
                 </div>
                 <div class="skill-category">
-                    <h4>Programming Languages</h4>
-                    <p>JavaScript/ES6+, Java, Python, C++, Bash</p>
+                    <h4>Backend & DevOps</h4>
+                    <p>Node.js, Python, Java, Docker, Kubernetes, CI/CD, Linux, Bash Scripting</p>
                 </div>
                 <div class="skill-category">
-                    <h4>DevOps & Cloud</h4>
-                    <p>AWS, Azure, Linux, Git, Firebase, System Architecture</p>
+                    <h4>Cloud & Infrastructure</h4>
+                    <p>AWS, Azure, Infrastructure as Code, Monitoring, Security, System Architecture</p>
                 </div>
                 <div class="skill-category">
-                    <h4>Technical Knowledge</h4>
-                    <p>Networking, Security Principles, Database Concepts, CCNA Certified</p>
+                    <h4>Tools & Technologies</h4>
+                    <p>Git, Jenkins, Terraform, Ansible, Networking, Database Design, CCNA Certified</p>
                 </div>
             </div>
         </div>
@@ -576,14 +584,14 @@
                     </div>
                     <div class="project-content">
                         <h3>AeroAid</h3>
-                        <p>Emergency drone response application connecting drone operators with emergency situations. Features real-time geolocation tracking, Firebase authentication, and efficient emergency assignment algorithms.</p>
+                        <p>Emergency drone response application connecting drone operators with emergency situations. Features real-time geolocation tracking, efficient assignment algorithms, and responsive mobile-first design for critical emergency scenarios.</p>
                         <div class="project-tech">
                             <span class="tech-tag">React</span>
-                            <span class="tech-tag">Firebase</span>
                             <span class="tech-tag">Context API</span>
                             <span class="tech-tag">Tailwind CSS</span>
                             <span class="tech-tag">Leaflet.js</span>
                             <span class="tech-tag">OpenStreetMap</span>
+                            <span class="tech-tag">Geolocation API</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/TaamirH/AeroAid" target="_blank">View Code →</a>
@@ -597,12 +605,13 @@
                     </div>
                     <div class="project-content">
                         <h3>Vaad Management System</h3>
-                        <p>A comprehensive management system for residential committees, streamlining communication, maintenance requests, and community organization with modern web technologies.</p>
+                        <p>A comprehensive management system for residential committees, streamlining communication, maintenance requests, and community organization. Built with modern web technologies and responsive design principles.</p>
                         <div class="project-tech">
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
                             <span class="tech-tag">Responsive Design</span>
+                            <span class="tech-tag">Local Storage</span>
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/vaadnet/vaadnet.github.io" target="_blank">View Code →</a>
@@ -616,12 +625,13 @@
                     </div>
                     <div class="project-content">
                         <h3>IT Infrastructure Management</h3>
-                        <p>Led organization-wide systems implementation at Wobi, including cloud services deployment on AWS/Azure, automated monitoring systems, and security infrastructure.</p>
+                        <p>Led organization-wide systems implementation at Wobi, including cloud services deployment on AWS/Azure, automated monitoring systems, security infrastructure, and CI/CD pipeline optimization.</p>
                         <div class="project-tech">
                             <span class="tech-tag">AWS</span>
                             <span class="tech-tag">Azure</span>
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Docker</span>
                             <span class="tech-tag">Security</span>
                         </div>
                         <div class="project-links">
@@ -637,25 +647,30 @@
         <div class="container">
             <h2 class="section-title">Let's Connect</h2>
             <div class="contact-content">
-                <p>I'm always interested in new opportunities and interesting projects. Whether you want to discuss a potential collaboration or just say hello, feel free to reach out!</p>
+                <p>I'm always interested in new opportunities and challenging projects. Whether you want to discuss a potential collaboration, need help with your infrastructure, or just want to say hello, feel free to reach out!</p>
                 <div class="contact-info">
                     <div class="contact-item">
+                        <span class="icon">📧</span>
                         <h4>Email</h4>
                         <a href="mailto:taamirhd@gmail.com">taamirhd@gmail.com</a>
                     </div>
                     <div class="contact-item">
+                        <span class="icon">📱</span>
                         <h4>Phone</h4>
                         <a href="tel:0544800135">054-480-0135</a>
                     </div>
                     <div class="contact-item">
+                        <span class="icon">💻</span>
                         <h4>GitHub</h4>
                         <a href="https://github.com/TaamirH" target="_blank">github.com/TaamirH</a>
                     </div>
                     <div class="contact-item">
+                        <span class="icon">💼</span>
                         <h4>LinkedIn</h4>
                         <a href="https://www.linkedin.com/in/tamir-hadad-2b1954187/" target="_blank">linkedin.com/in/tamir-hadad</a>
                     </div>
                     <div class="contact-item">
+                        <span class="icon">📍</span>
                         <h4>Location</h4>
                         <span>Tel Aviv, Israel</span>
                     </div>
