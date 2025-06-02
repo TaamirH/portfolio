@@ -174,6 +174,45 @@
             transform: translateY(-2px);
         }
 
+        /* Motto Section */
+        .motto {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .motto::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+        }
+
+        .motto-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .motto h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            letter-spacing: 1px;
+        }
+
+        .motto p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
         /* Sections */
         section {
             padding: 100px 0 80px 0;
@@ -252,13 +291,17 @@
             line-height: 1.8;
         }
 
-        /* Skills with Progress Bars */
+        /* Skills with Progress Bars - Fixed visibility */
+        .skills-section {
+            padding: 80px 0 120px 0; /* Extra padding at bottom */
+            min-height: 800px; /* Ensure minimum height */
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
-            margin-bottom: 6rem; /* Increased margin to ensure Tools section visibility */
         }
 
         .skill-category {
@@ -267,7 +310,8 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px var(--shadow);
             transition: all 0.3s ease;
-            margin-bottom: 2rem; /* Increased margin between cards */
+            margin-bottom: 2rem;
+            min-height: 200px; /* Ensure minimum height for each card */
         }
 
         .skill-category:hover {
@@ -719,6 +763,14 @@
             .timeline-dot {
                 left: 20px;
             }
+
+            .motto h2 {
+                font-size: 2rem;
+            }
+
+            .motto p {
+                font-size: 1rem;
+            }
         }
 
         /* Scroll indicator */
@@ -770,6 +822,16 @@
         </div>
     </nav>
 
+    <!-- Motto Section -->
+    <div class="motto">
+        <div class="container">
+            <div class="motto-content fade-in">
+                <h2>Code with purpose. Build with impact.</h2>
+                <p>Transforming ideas into digital reality through innovative development and robust infrastructure</p>
+            </div>
+        </div>
+    </div>
+
     <section id="about" class="parallax">
         <div class="container">
             <h2 class="section-title fade-in">About Me</h2>
@@ -786,7 +848,11 @@
                     <p>I'm particularly interested in creating systems that bridge the gap between development and operations, ensuring seamless deployment and monitoring of applications in production environments.</p>
                 </div>
             </div>
-            
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <div class="container">
             <div class="skills-grid">
                 <div class="skill-category fade-in">
                     <h4><i class="fab fa-react"></i> Frontend Development</h4>
@@ -891,50 +957,50 @@
                     <div class="timeline-content">
                         <div class="timeline-date">2015 - 2016</div>
                         <h4>Cisco CCNA Certification</h4>
-                        <p>Obtained professional networking certification, mastering network design and security principles.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                       <p>Obtained professional networking certification, mastering network design and security principles.</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
 
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title fade-in">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card fade-in" onclick="openModal('aeroaid')">
-                    <div class="project-image">
-                        <img src="aeroaid1.png" alt="AeroAid Project">
-                        <div class="project-overlay">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>AeroAid</h3>
-                        <p>Emergency drone response application connecting drone operators with emergency situations. Features real-time geolocation tracking and efficient assignment algorithms.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag"><i class="fab fa-react"></i> React</span>
-                            <span class="tech-tag"><i class="fas fa-code"></i> Context API</span>
-                            <span class="tech-tag"><i class="fab fa-css3"></i> Tailwind CSS</span>
-                            <span class="tech-tag"><i class="fas fa-map"></i> Leaflet.js</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card fade-in" onclick="openModal('vaadnet')">
-                    <div class="project-image">
-                        <img src="vaadnet1.png" alt="Vaad Management System" style="object-position: top right;">
-                        <div class="project-overlay">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Vaad Management System</h3>
-                        <p>A comprehensive management system for residential committees, streamlining communication and community organization.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
-                            <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
-                            <span class="tech-tag"><i class="fab fa-css3"></i> CSS3</span>
+   <section id="projects">
+       <div class="container">
+           <h2 class="section-title fade-in">Featured Projects</h2>
+           <div class="projects-grid">
+               <div class="project-card fade-in" onclick="openModal('aeroaid')">
+                   <div class="project-image">
+                       <img src="aeroaid1.png" alt="AeroAid Project">
+                       <div class="project-overlay">
+                           <i class="fas fa-eye"></i>
+                       </div>
+                   </div>
+                   <div class="project-content">
+                       <h3>AeroAid</h3>
+                       <p>Emergency drone response application connecting drone operators with emergency situations. Features real-time geolocation tracking and efficient assignment algorithms.</p>
+                       <div class="project-tech">
+                           <span class="tech-tag"><i class="fab fa-react"></i> React</span>
+                           <span class="tech-tag"><i class="fas fa-code"></i> Context API</span>
+                           <span class="tech-tag"><i class="fab fa-css3"></i> Tailwind CSS</span>
+                           <span class="tech-tag"><i class="fas fa-map"></i> Leaflet.js</span>
+                       </div>
+                   </div>
+               </div>
+               
+               <div class="project-card fade-in" onclick="openModal('vaadnet')">
+                   <div class="project-image">
+                       <img src="vaadnet1.png" alt="Vaad Management System" style="object-position: top right;">
+                       <div class="project-overlay">
+                           <i class="fas fa-eye"></i>
+                       </div>
+                   </div>
+                   <div class="project-content">
+                       <h3>Vaad Management System</h3>
+                       <p>A comprehensive management system for residential committees, streamlining communication and community organization.</p>
+                       <div class="project-tech">
+                           <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                           <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+                           <span class="tech-tag"><i class="fab fa-css3"></i> CSS3</span>
                            <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
                        </div>
                    </div>
@@ -1054,7 +1120,7 @@
                <p><strong>Solution:</strong> Developed a proximity-based algorithm considering operator availability, distance, and emergency priority levels.</p>
                
                <div style="margin-top: 2rem;">
-                   <a href="https://github.com/TaamirH/AeroAid" target="_blank" class="submit-btn">
+                   <a href="https://github.com/TaamirH/AeroAid" target="_blank" class="download-btn">
                        <i class="fab fa-github"></i> View on GitHub
                    </a>
                </div>
@@ -1106,7 +1172,7 @@
                <p><strong>Solution:</strong> Implemented intuitive design patterns with clear navigation and multilingual support.</p>
                
                <div style="margin-top: 2rem;">
-                   <a href="https://github.com/vaadnet/vaadnet.github.io" target="_blank" class="submit-btn">
+                   <a href="https://github.com/vaadnet/vaadnet.github.io" target="_blank" class="download-btn">
                        <i class="fab fa-github"></i> View on GitHub
                    </a>
                </div>
