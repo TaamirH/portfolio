@@ -177,11 +177,12 @@
         /* Motto Section */
         .motto {
             text-align: center;
-            padding: 4rem 0;
+            padding: 6rem 0 4rem 0;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             position: relative;
             overflow: hidden;
+            margin-top: 80px;
         }
 
         .motto::before {
@@ -215,7 +216,7 @@
 
         /* Sections */
         section {
-            padding: 100px 0 80px 0;
+            padding: 120px 0 100px 0;
             background: var(--bg-color);
             position: relative;
             overflow: hidden;
@@ -228,7 +229,7 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             color: var(--text-color);
             position: relative;
         }
@@ -249,9 +250,9 @@
         .about-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .about-image {
@@ -266,10 +267,11 @@
             margin: 0 auto;
             box-shadow: 0 15px 35px var(--shadow);
             transition: transform 0.3s ease;
+            border: 4px solid var(--primary-color);
         }
 
         .profile-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) rotate(2deg);
         }
 
         .profile-img img {
@@ -280,82 +282,150 @@
         }
 
         .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
         }
 
         .about-text p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             font-size: 1.1rem;
             line-height: 1.8;
+            text-align: justify;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
         /* Skills with Progress Bars - Fixed visibility */
         .skills-section {
-            padding: 80px 0 120px 0; /* Extra padding at bottom */
-            min-height: 800px; /* Ensure minimum height */
+            padding: 120px 0 140px 0;
+            min-height: 800px;
         }
 
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 2rem;
         }
 
         .skill-category {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px var(--shadow);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px var(--shadow);
             transition: all 0.3s ease;
             margin-bottom: 2rem;
-            min-height: 200px; /* Ensure minimum height for each card */
+            min-height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         }
 
         .skill-category:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px var(--shadow-hover);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px var(--shadow-hover);
         }
 
         .skill-category h4 {
             color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
 
         .skill-item {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .skill-name {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
         }
 
         .skill-bar {
-            height: 8px;
+            height: 10px;
             background: var(--border-color);
-            border-radius: 4px;
+            border-radius: 5px;
             overflow: hidden;
+            position: relative;
         }
 
         .skill-progress {
             height: 100%;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            border-radius: 4px;
+            border-radius: 5px;
             transition: width 2s ease;
             width: 0;
+            position: relative;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         /* Timeline */
         .timeline {
             position: relative;
-            margin: 2rem 0;
+            margin: 3rem 0;
         }
 
         .timeline::before {
@@ -365,13 +435,14 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: var(--primary-color);
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
             transform: translateX(-50%);
+            border-radius: 2px;
         }
 
         .timeline-item {
             position: relative;
-            margin: 2rem 0;
+            margin: 3rem 0;
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.6s ease;
@@ -384,53 +455,79 @@
 
         .timeline-item:nth-child(odd) .timeline-content {
             margin-right: 50%;
-            padding-right: 2rem;
+            padding-right: 3rem;
             text-align: right;
         }
 
         .timeline-item:nth-child(even) .timeline-content {
             margin-left: 50%;
-            padding-left: 2rem;
+            padding-left: 3rem;
         }
 
         .timeline-content {
             background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px var(--shadow);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px var(--shadow);
             position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 35px var(--shadow-hover);
         }
 
         .timeline-date {
             color: var(--primary-color);
             font-weight: bold;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content h4 {
+            color: var(--text-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .timeline-content h5 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .timeline-content p {
+            line-height: 1.6;
         }
 
         .timeline-dot {
             position: absolute;
             left: 50%;
-            top: 1rem;
-            width: 16px;
-            height: 16px;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
             background: var(--primary-color);
             border-radius: 50%;
             transform: translateX(-50%);
             border: 4px solid var(--bg-color);
+            box-shadow: 0 0 0 4px var(--primary-color);
+            z-index: 2;
         }
 
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
         }
 
         .project-card {
             background: var(--card-bg);
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px var(--shadow);
+            box-shadow: 0 15px 35px var(--shadow);
             transition: all 0.3s ease;
             position: relative;
             cursor: pointer;
@@ -438,11 +535,11 @@
 
         .project-card:hover {
             transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 50px var(--shadow-hover);
+            box-shadow: 0 30px 60px var(--shadow-hover);
         }
 
         .project-image {
-            height: 250px;
+            height: 280px;
             overflow: hidden;
             position: relative;
         }
@@ -482,39 +579,47 @@
         }
 
         .project-content {
-            padding: 2rem;
+            padding: 2.5rem;
         }
 
         .project-content h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
             color: var(--text-color);
+            font-weight: 600;
         }
 
         .project-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             color: var(--text-color);
             opacity: 0.8;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.8rem;
             margin-bottom: 1.5rem;
         }
 
         .tech-tag {
             background: var(--border-color);
             color: var(--primary-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
             font-size: 0.9rem;
             font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
         }
 
         /* Project Modal */
@@ -534,7 +639,7 @@
             background-color: var(--card-bg);
             margin: 2% auto;
             padding: 0;
-            border-radius: 15px;
+            border-radius: 20px;
             width: 90%;
             max-width: 900px;
             max-height: 90vh;
@@ -549,7 +654,7 @@
         }
 
         .modal-header {
-            padding: 2rem;
+            padding: 2.5rem;
             border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
@@ -568,7 +673,7 @@
         }
 
         .modal-body {
-            padding: 2rem;
+            padding: 2.5rem;
         }
 
         .carousel-container {
@@ -579,12 +684,12 @@
         .carousel {
             display: flex;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 15px;
         }
 
         .carousel img {
             width: 100%;
-            height: 300px;
+            height: 350px;
             object-fit: cover;
             flex-shrink: 0;
             transition: transform 0.3s ease;
@@ -594,39 +699,45 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
             color: white;
             border: none;
             padding: 1rem;
             cursor: pointer;
             font-size: 1.2rem;
-            border-radius: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
         }
 
-        .carousel-prev { left: 10px; }
-        .carousel-next { right: 10px; }
+        .carousel-nav:hover {
+            background: var(--primary-color);
+        }
+
+        .carousel-prev { left: 15px; }
+        .carousel-next { right: 15px; }
 
         .features-list {
             list-style: none;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
         }
 
         .features-list li {
-            padding: 0.5rem 0;
+            padding: 0.8rem 0;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
         }
 
         .features-list li::before {
             content: '✓';
             color: var(--primary-color);
             font-weight: bold;
+            font-size: 1.2rem;
         }
 
         /* Contact Info - New Layout */
         .contact-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
@@ -634,43 +745,56 @@
         .contact-info {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-            margin-bottom: 2rem;
+            gap: 2.5rem;
+            margin-top: 4rem;
+            margin-bottom: 3rem;
         }
 
         .contact-info-social {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: 2.5rem;
             max-width: 600px;
             margin: 0 auto;
         }
 
         .contact-item {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px var(--shadow);
-            transition: transform 0.3s ease;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px var(--shadow);
+            transition: all 0.3s ease;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         }
 
         .contact-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
         }
 
         .contact-item .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
             display: block;
             color: var(--primary-color);
         }
 
         .contact-item h4 {
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
 
         .contact-item a {
@@ -700,7 +824,7 @@
         }
 
         .contact-item.clickable:hover {
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-8px) scale(1.03);
         }
 
         /* Footer */
@@ -708,7 +832,8 @@
             background: var(--section-bg);
             color: var(--text-color);
             text-align: center;
-            padding: 2rem 0;
+            padding: 3rem 0;
+            border-top: 4px solid var(--primary-color);
         }
 
         /* Parallax Effect */
@@ -719,20 +844,62 @@
             background-size: cover;
         }
 
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            box-shadow: 0 5px 15px var(--shadow);
+            padding: 1rem;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-color);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
+            .hamburger {
+                display: flex;
+            }
+
             .about-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 3rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .profile-img {
-                width: 200px;
-                height: 200px;
+                width: 250px;
+                height: 250px;
             }
 
             .projects-grid {
@@ -748,12 +915,12 @@
             }
 
             .timeline::before {
-                left: 20px;
+                left: 30px;
             }
 
             .timeline-item:nth-child(odd) .timeline-content,
             .timeline-item:nth-child(even) .timeline-content {
-                margin-left: 40px;
+                margin-left: 60px;
                 margin-right: 0;
                 padding-left: 2rem;
                 padding-right: 1rem;
@@ -761,7 +928,11 @@
             }
 
             .timeline-dot {
-                left: 20px;
+                left: 30px;
+            }
+
+            .motto {
+                padding: 4rem 0 3rem 0;
             }
 
             .motto h2 {
@@ -770,6 +941,14 @@
 
             .motto p {
                 font-size: 1rem;
+            }
+
+            section {
+                padding: 80px 0 60px 0;
+            }
+
+            .skills-section {
+                padding: 80px 0 100px 0;
             }
         }
 
@@ -796,6 +975,16 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Floating elements animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
     </style>
 </head>
 <body>
@@ -818,6 +1007,19 @@
                     <li><button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button></li>
                     <li><a href="resume.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> CV</a></li>
                 </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="mobile-menu" id="mobile-menu">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <button class="theme-toggle" id="theme-toggle-mobile"><i class="fas fa-moon"></i></button>
+                <a href="resume.pdf" target="_blank"><i class="fas fa-download"></i> Download CV</a>
             </div>
         </div>
     </nav>
@@ -837,7 +1039,7 @@
             <h2 class="section-title fade-in">About Me</h2>
             <div class="about-content">
                 <div class="about-image fade-in">
-                    <div class="profile-img">
+                    <div class="profile-img floating">
                         <img src="taamirh.jpeg" alt="Tamir Hadad">
                     </div>
                 </div>
@@ -848,16 +1050,32 @@
                     <p>I'm particularly interested in creating systems that bridge the gap between development and operations, ensuring seamless deployment and monitoring of applications in production environments.</p>
                 </div>
             </div>
+            
+            <div class="about-stats">
+                <div class="stat-item fade-in">
+                    <span class="stat-number">6+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Technologies Mastered</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="skills" class="skills-section">
         <div class="container">
+            <h2 class="section-title fade-in">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category fade-in">
                     <h4><i class="fab fa-react"></i> Frontend Development</h4>
                     <div class="skill-item">
-                        <div class="skill-name"><span>React</span><span>90%</span></div>
+                        <div class="skill-name"><span>React & Context API</span><span>90%</span></div>
                         <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
                     </div>
                     <div class="skill-item">
@@ -865,56 +1083,88 @@
                         <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name"><span>HTML5/CSS3</span><span>95%</span></div>
+                        <div class="skill-name"><span>HTML5/CSS3 & Tailwind</span><span>95%</span></div>
                         <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
                     </div>
                 </div>
                 
                 <div class="skill-category fade-in">
-                    <h4><i class="fas fa-server"></i> Backend & DevOps</h4>
+                    <h4><i class="fas fa-server"></i> Backend & Databases</h4>
                     <div class="skill-item">
-                        <div class="skill-name"><span>Node.js</span><span>80%</span></div>
+                        <div class="skill-name"><span>Node.js & Express</span><span>80%</span></div>
                         <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name"><span>Python</span><span>75%</span></div>
-                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                        <div class="skill-name"><span>Python & Automation</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name"><span>Docker/Kubernetes</span><span>70%</span></div>
-                        <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                        <div class="skill-name"><span>Firebase & Firestore</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
                     </div>
                 </div>
                 
                 <div class="skill-category fade-in">
                     <h4><i class="fas fa-cloud"></i> Cloud & Infrastructure</h4>
                     <div class="skill-item">
-                        <div class="skill-name"><span>AWS</span><span>85%</span></div>
+                        <div class="skill-name"><span>AWS Services</span><span>85%</span></div>
                         <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name"><span>Azure</span><span>75%</span></div>
-                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                        <div class="skill-name"><span>Microsoft Azure</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name"><span>Linux</span><span>90%</span></div>
+                        <div class="skill-name"><span>Linux & Server Management</span><span>90%</span></div>
                         <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
                     </div>
                 </div>
                 
                 <div class="skill-category fade-in">
-                    <h4><i class="fas fa-tools"></i> Tools & Technologies</h4>
+                    <h4><i class="fas fa-shield-alt"></i> Security & DevOps</h4>
                     <div class="skill-item">
-                        <div class="skill-name"><span>Git</span><span>95%</span></div>
+                        <div class="skill-name"><span>VMware & Virtualization</span><span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Security Frameworks</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Docker & Containers</span><span>75%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                    </div>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h4><i class="fas fa-network-wired"></i> Networking & Monitoring</h4>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Cisco CCNA & Networking</span><span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>InfluxDB & Monitoring</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>PowerShell & Automation</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+                    </div>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h4><i class="fas fa-tools"></i> Development Tools</h4>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Git & Version Control</span><span>95%</span></div>
                         <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name"><span>Jenkins</span><span>70%</span></div>
-                        <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                        <div class="skill-name"><span>CI/CD & Jenkins</span><span>75%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-name"><span>Terraform</span><span>65%</span></div>
-                        <div class="skill-bar"><div class="skill-progress" data-width="65"></div></div>
+                        <div class="skill-name"><span>Jira & Project Management</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
                     </div>
                 </div>
             </div>
@@ -930,7 +1180,8 @@
                     <div class="timeline-content">
                         <div class="timeline-date">2022 - 2025</div>
                         <h4>Computer Science & Climate Change B.Sc</h4>
-                        <p>Ben Gurion University - Graduated with honors, focusing on sustainable technology solutions and full-stack development.</p>
+                        <h5>Ben Gurion University</h5>
+                        <p>Graduated with honors, focusing on sustainable technology solutions and full-stack development. Completed final year project AeroAid - an emergency drone response application using React and Firebase.</p>
                     </div>
                 </div>
                 
@@ -939,7 +1190,8 @@
                     <div class="timeline-content">
                         <div class="timeline-date">2019 - 2025</div>
                         <h4>IT Manager & Security Operations Lead</h4>
-                        <p>Wobi - Led technical implementation of organization-wide systems and security infrastructure. Deployed cloud services on AWS and Azure.</p>
+                        <h5>Wobi</h5>
+                        <p>Led technical implementation of organization-wide systems and security infrastructure. Architected VMware virtualization environments, implemented comprehensive security frameworks with MFA and EDR, and successfully migrated infrastructure to AWS and Azure cloud platforms, eliminating on-premises server costs.</p>
                     </div>
                 </div>
                 
@@ -948,7 +1200,8 @@
                     <div class="timeline-content">
                         <div class="timeline-date">2016 - 2018</div>
                         <h4>IDF Help Desk Team Manager</h4>
-                        <p>Israeli Defense Forces - Led technical support team, developed training materials and designed network implementations.</p>
+                        <h5>Israeli Defense Forces</h5>
+                        <p>Led and trained technical support team in troubleshooting and maintaining network infrastructure. Designed and implemented physical and logical network systems, improving service efficiency and developing comprehensive training materials and documentation.</p>
                     </div>
                 </div>
                 
@@ -957,411 +1210,679 @@
                     <div class="timeline-content">
                         <div class="timeline-date">2015 - 2016</div>
                         <h4>Cisco CCNA Certification</h4>
-                       <p>Obtained professional networking certification, mastering network design and security principles.</p>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
+                        <h5>Cisco Networking Academy</h5>
+                        <p>Obtained professional networking certification, mastering network design, configuration, and security principles. Gained expertise in WAN/LAN management, routing protocols, and network troubleshooting methodologies.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2012 - 2015</div>
+                        <h4>Physics and Computer Science Major</h4>
+                        <h5>Gymnasia Realit High School</h5>
+                        <p>Specialized in Physics and Computer Science, building a strong foundation in analytical thinking, problem-solving, and programming fundamentals that would later support my career in technology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-   <section id="projects">
-       <div class="container">
-           <h2 class="section-title fade-in">Featured Projects</h2>
-           <div class="projects-grid">
-               <div class="project-card fade-in" onclick="openModal('aeroaid')">
-                   <div class="project-image">
-                       <img src="aeroaid1.png" alt="AeroAid Project">
-                       <div class="project-overlay">
-                           <i class="fas fa-eye"></i>
-                       </div>
-                   </div>
-                   <div class="project-content">
-                       <h3>AeroAid</h3>
-                       <p>Emergency drone response application connecting drone operators with emergency situations. Features real-time geolocation tracking and efficient assignment algorithms.</p>
-                       <div class="project-tech">
-                           <span class="tech-tag"><i class="fab fa-react"></i> React</span>
-                           <span class="tech-tag"><i class="fas fa-code"></i> Context API</span>
-                           <span class="tech-tag"><i class="fab fa-css3"></i> Tailwind CSS</span>
-                           <span class="tech-tag"><i class="fas fa-map"></i> Leaflet.js</span>
-                       </div>
-                   </div>
-               </div>
-               
-               <div class="project-card fade-in" onclick="openModal('vaadnet')">
-                   <div class="project-image">
-                       <img src="vaadnet1.png" alt="Vaad Management System" style="object-position: top right;">
-                       <div class="project-overlay">
-                           <i class="fas fa-eye"></i>
-                       </div>
-                   </div>
-                   <div class="project-content">
-                       <h3>Vaad Management System</h3>
-                       <p>A comprehensive management system for residential committees, streamlining communication and community organization.</p>
-                       <div class="project-tech">
-                           <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
-                           <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
-                           <span class="tech-tag"><i class="fab fa-css3"></i> CSS3</span>
-                           <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
-                       </div>
-                   </div>
-               </div>
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in" onclick="openModal('aeroaid')">
+                    <div class="project-image">
+                        <img src="aeroaid1.png" alt="AeroAid Project">
+                        <div class="project-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AeroAid</h3>
+                        <p>Emergency drone response application connecting drone operators with emergency situations. Features real-time geolocation tracking, efficient assignment algorithms, and Firebase integration for seamless communication.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-react"></i> React</span>
+                            <span class="tech-tag"><i class="fas fa-code"></i> Context API</span>
+                            <span class="tech-tag"><i class="fab fa-css3"></i> Tailwind CSS</span>
+                            <span class="tech-tag"><i class="fas fa-map"></i> Leaflet.js</span>
+                            <span class="tech-tag"><i class="fas fa-fire"></i> Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in" onclick="openModal('vaadnet')">
+                    <div class="project-image">
+                        <img src="vaadnet1.png" alt="Vaad Management System" style="object-position: top right;">
+                        <div class="project-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Vaad Management System</h3>
+                        <p>A comprehensive management system for residential committees, streamlining communication, maintenance requests, and community organization with modern web technologies.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="tech-tag"><i class="fab fa-css3"></i> CSS3</span>
+                            <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive</span>
+                        </div>
+                    </div>
+                </div>
 
-               <div class="project-card fade-in" onclick="openModal('infrastructure')">
-                   <div class="project-image">
-                       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234f46e5'/%3E%3Cstop offset='100%25' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23bg)'/%3E%3Cg transform='translate(200,125)'%3E%3Ccircle cx='-80' cy='-40' r='25' fill='white' opacity='0.2'/%3E%3Ccircle cx='80' cy='-40' r='25' fill='white' opacity='0.2'/%3E%3Ccircle cx='0' cy='40' r='25' fill='white' opacity='0.2'/%3E%3Cpath d='M-60,-40 L60,-40 M-40,-20 L40,-20 M-20,0 L20,0 M0,20 L0,60' stroke='white' stroke-width='3' opacity='0.6'/%3E%3Ctext x='0' y='-60' text-anchor='middle' fill='white' font-size='20' font-family='Arial'%3EIT Infrastructure%3C/text%3E%3Ctext x='0' y='90' text-anchor='middle' fill='white' font-size='14' font-family='Arial'%3ECloud • Security • Automation%3C/text%3E%3C/g%3E%3C/svg%3E" alt="IT Infrastructure Management">
-                       <div class="project-overlay">
-                           <i class="fas fa-eye"></i>
-                       </div>
-                   </div>
-                   <div class="project-content">
-                       <h3>IT Infrastructure Management</h3>
-                       <p>Led organization-wide systems implementation including cloud services deployment and automated monitoring systems.</p>
-                       <div class="project-tech">
-                           <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
-                           <span class="tech-tag"><i class="fab fa-microsoft"></i> Azure</span>
-                           <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
-                           <span class="tech-tag"><i class="fab fa-docker"></i> Docker</span>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
+                <div class="project-card fade-in" onclick="openModal('infrastructure')">
+                    <div class="project-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234f46e5'/%3E%3Cstop offset='100%25' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23bg)'/%3E%3Cg transform='translate(200,125)'%3E%3Ccircle cx='-80' cy='-40' r='25' fill='white' opacity='0.2'/%3E%3Ccircle cx='80' cy='-40' r='25' fill='white' opacity='0.2'/%3E%3Ccircle cx='0' cy='40' r='25' fill='white' opacity='0.2'/%3E%3Cpath d='M-60,-40 L60,-40 M-40,-20 L40,-20 M-20,0 L20,0 M0,20 L0,60' stroke='white' stroke-width='3' opacity='0.6'/%3E%3Ctext x='0' y='-60' text-anchor='middle' fill='white' font-size='20' font-family='Arial'%3EIT Infrastructure%3C/text%3E%3Ctext x='0' y='90' text-anchor='middle' fill='white' font-size='14' font-family='Arial'%3ECloud • Security • Automation%3C/text%3E%3C/g%3E%3C/svg%3E" alt="IT Infrastructure Management">
+                        <div class="project-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Enterprise IT Infrastructure</h3>
+                        <p>Led organization-wide systems implementation including cloud migration, security frameworks, automated monitoring, and virtualization solutions reducing operational costs by 40%.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
+                            <span class="tech-tag"><i class="fab fa-microsoft"></i> Azure</span>
+                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                            <span class="tech-tag"><i class="fas fa-server"></i> VMware</span>
+                            <span class="tech-tag"><i class="fas fa-shield-alt"></i> Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-   <section id="contact">
-       <div class="container">
-           <h2 class="section-title fade-in">Let's Connect</h2>
-           <div class="contact-content">
-               <p class="fade-in">I'm always interested in new opportunities and challenging projects. Whether you want to discuss a potential collaboration, need help with your infrastructure, or just want to say hello, feel free to reach out!</p>
-               
-               <!-- Contact Info - First Row: Email, Phone, Location (Non-clickable) -->
-               <div class="contact-info">
-                   <div class="contact-item non-clickable fade-in">
-                       <i class="fas fa-envelope icon"></i>
-                       <h4>Email</h4>
-                       <span>taamirhd@gmail.com</span>
-                   </div>
-                   <div class="contact-item non-clickable fade-in">
-                       <i class="fas fa-phone icon"></i>
-                       <h4>Phone</h4>
-                       <span>054-480-0135</span>
-                   </div>
-                   <div class="contact-item non-clickable fade-in">
-                       <i class="fas fa-map-marker-alt icon"></i>
-                       <h4>Location</h4>
-                       <span>Tel Aviv, Israel</span>
-                   </div>
-               </div>
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Let's Connect</h2>
+            <div class="contact-content">
+                <p class="fade-in">I'm always interested in new opportunities and challenging projects. Whether you want to discuss a potential collaboration, need help with your infrastructure, or just want to say hello, feel free to reach out!</p>
+                
+                <!-- Contact Info - First Row: Email, Phone, Location (Non-clickable) -->
+                <div class="contact-info">
+                    <div class="contact-item non-clickable fade-in">
+                        <i class="fas fa-envelope icon"></i>
+                        <h4>Email</h4>
+                        <span>taamirhd@gmail.com</span>
+                    </div>
+                    <div class="contact-item non-clickable fade-in">
+                        <i class="fas fa-phone icon"></i>
+                        <h4>Phone</h4>
+                        <span>054-480-0135</span>
+                    </div>
+                    <div class="contact-item non-clickable fade-in">
+                        <i class="fas fa-map-marker-alt icon"></i>
+                        <h4>Location</h4>
+                        <span>Tel Aviv, Israel</span>
+                    </div>
+                </div>
 
-               <!-- Contact Info - Second Row: GitHub, LinkedIn (Clickable) -->
-               <div class="contact-info-social">
-                   <div class="contact-item clickable fade-in" onclick="window.open('https://github.com/TaamirH', '_blank')">
-                       <i class="fab fa-github icon"></i>
-                       <h4>GitHub</h4>
-                       <span>View Projects</span>
-                   </div>
-                   <div class="contact-item clickable fade-in" onclick="window.open('https://www.linkedin.com/in/tamir-hadad-2b1954187/', '_blank')">
-                       <i class="fab fa-linkedin icon"></i>
-                       <h4>LinkedIn</h4>
-                       <span>Connect with me</span>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
+                <!-- Contact Info - Second Row: GitHub, LinkedIn (Clickable) -->
+                <div class="contact-info-social">
+                    <div class="contact-item clickable fade-in" onclick="window.open('https://github.com/TaamirH', '_blank')">
+                        <i class="fab fa-github icon"></i>
+                        <h4>GitHub</h4>
+                        <span>View Projects</span>
+                    </div>
+                    <div class="contact-item clickable fade-in" onclick="window.open('https://www.linkedin.com/in/tamir-hadad-2b1954187/', '_blank')">
+                        <i class="fab fa-linkedin icon"></i>
+                        <h4>LinkedIn</h4>
+                        <span>Connect with me</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-   <!-- Project Modals -->
-   <div id="aeroaid-modal" class="modal">
-       <div class="modal-content">
-           <div class="modal-header">
-               <h2>AeroAid - Emergency Drone Response</h2>
-               <span class="modal-close">&times;</span>
-           </div>
-           <div class="modal-body">
-               <div class="carousel-container">
-                   <div class="carousel" id="aeroaid-carousel">
-                       <img src="aeroaid1.png" alt="AeroAid Screenshot 1">
-                       <img src="aeroaid1.png" alt="AeroAid Screenshot 2">
-                       <img src="aeroaid1.png" alt="AeroAid Screenshot 3">
-                   </div>
-                   <button class="carousel-nav carousel-prev" onclick="prevSlide('aeroaid')">&lt;</button>
-                   <button class="carousel-nav carousel-next" onclick="nextSlide('aeroaid')">&gt;</button>
-               </div>
-               
-               <h3>About This Project</h3>
-               <p>AeroAid is an innovative emergency response application that connects drone operators with emergency situations in real-time. Built with React and modern web technologies, it provides a comprehensive platform for coordinating emergency assistance through drone technology.</p>
-               
-               <h3>Key Features</h3>
-               <ul class="features-list">
-                   <li>Real-time geolocation tracking and mapping</li>
-                   <li>Efficient emergency assignment algorithms</li>
-                   <li>Mobile-first responsive design for field use</li>
-                   <li>User authentication and role management</li>
-                   <li>Interactive map with OpenStreetMap integration</li>
-                   <li>Real-time notifications and alerts</li>
-                   <li>Emergency status tracking and updates</li>
-               </ul>
-               
-               <h3>Technology Stack</h3>
-               <div class="project-tech">
-                   <span class="tech-tag"><i class="fab fa-react"></i> React</span>
-                   <span class="tech-tag"><i class="fas fa-code"></i> Context API</span>
-                   <span class="tech-tag"><i class="fab fa-css3"></i> Tailwind CSS</span>
-                   <span class="tech-tag"><i class="fas fa-map"></i> Leaflet.js</span>
-                   <span class="tech-tag"><i class="fas fa-map-marked"></i> OpenStreetMap</span>
-                   <span class="tech-tag"><i class="fas fa-location-arrow"></i> Geolocation API</span>
-               </div>
-               
-               <h3>Challenges & Solutions</h3>
-               <p><strong>Challenge:</strong> Implementing real-time location tracking for emergency scenarios.</p>
-               <p><strong>Solution:</strong> Utilized the Geolocation API combined with Leaflet.js for accurate mapping and real-time position updates.</p>
-               
-               <p><strong>Challenge:</strong> Creating an efficient assignment algorithm for matching emergencies with available drone operators.</p>
-               <p><strong>Solution:</strong> Developed a proximity-based algorithm considering operator availability, distance, and emergency priority levels.</p>
-               
-               <div style="margin-top: 2rem;">
-                   <a href="https://github.com/TaamirH/AeroAid" target="_blank" class="download-btn">
-                       <i class="fab fa-github"></i> View on GitHub
-                   </a>
-               </div>
-           </div>
-       </div>
-   </div>
+    <!-- Project Modals -->
+    <div id="aeroaid-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>AeroAid - Emergency Drone Response</h2>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="carousel-container">
+                    <div class="carousel" id="aeroaid-carousel">
+                        <img src="aeroaid1.png" alt="AeroAid Screenshot 1">
+                        <img src="aeroaid1.png" alt="AeroAid Screenshot 2">
+                        <img src="aeroaid1.png" alt="AeroAid Screenshot 3">
+                    </div>
+                    <button class="carousel-nav carousel-prev" onclick="prevSlide('aeroaid')">&lt;</button>
+                    <button class="carousel-nav carousel-next" onclick="nextSlide('aeroaid')">&gt;</button>
+                </div>
+                
+                <h3>About This Project</h3>
+                <p>AeroAid is an innovative emergency response application that connects drone operators with emergency situations in real-time. Built with React and modern web technologies, it provides a comprehensive platform for coordinating emergency assistance through drone technology.</p>
+                
+                <h3>Key Features</h3>
+                <ul class="features-list">
+                    <li>Real-time geolocation tracking and mapping</li>
+                    <li>Efficient emergency assignment algorithms</li>
+                    <li>Mobile-first responsive design for field use</li>
+                    <li>Firebase Authentication and user management</li>
+                    <li>Interactive map with OpenStreetMap integration</li>
+                    <li>Real-time notifications and alerts via Firebase Cloud Messaging</li>
+                    <li>Emergency status tracking and updates</li>
+                    <li>Complex state management using React Context API</li>
+                </ul>
+                
+                <h3>Technology Stack</h3>
+                <div class="project-tech">
+                    <span class="tech-tag"><i class="fab fa-react"></i> React</span>
+                    <span class="tech-tag"><i class="fas fa-code"></i> Context API</span>
+                    <span class="tech-tag"><i class="fab fa-css3"></i> Tailwind CSS</span>
+                    <span class="tech-tag"><i class="fas fa-map"></i> Leaflet.js</span>
+                    <span class="tech-tag"><i class="fas fa-map-marked"></i> OpenStreetMap</span>
+                    <span class="tech-tag"><i class="fas fa-fire"></i> Firebase</span>
+                    <span class="tech-tag"><i class="fas fa-database"></i> Firestore</span>
+                    <span class="tech-tag"><i class="fas fa-location-arrow"></i> Geolocation API</span>
+                </div>
+                
+                <h3>Challenges & Solutions</h3>
+                <p><strong>Challenge:</strong> Implementing real-time location tracking for emergency scenarios while maintaining accuracy and performance.</p>
+                <p><strong>Solution:</strong> Utilized the HTML5 Geolocation API combined with Leaflet.js for accurate mapping and real-time position updates, with Firebase Firestore for real-time database synchronization.</p>
+                
+                <p><strong>Challenge:</strong> Creating an efficient assignment algorithm for matching emergencies with available drone operators.</p>
+                <p><strong>Solution:</strong> Developed a proximity-based algorithm considering operator availability, distance, and emergency priority levels using efficient search algorithms.</p>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="https://github.com/TaamirH/AeroAid" target="_blank" class="download-btn">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-   <div id="vaadnet-modal" class="modal">
-       <div class="modal-content">
-           <div class="modal-header">
-               <h2>Vaad Management System</h2>
-               <span class="modal-close">&times;</span>
-           </div>
-           <div class="modal-body">
-               <div class="carousel-container">
-                   <div class="carousel" id="vaadnet-carousel">
-                       <img src="vaadnet1.png" alt="Vaadnet Screenshot 1">
-                       <img src="vaadnet1.png" alt="Vaadnet Screenshot 2">
-                   </div>
-                   <button class="carousel-nav carousel-prev" onclick="prevSlide('vaadnet')">&lt;</button>
-                   <button class="carousel-nav carousel-next" onclick="nextSlide('vaadnet')">&gt;</button>
-               </div>
-               
-               <h3>About This Project</h3>
-               <p>A comprehensive management system designed for residential committees (Vaad Bayit in Hebrew), streamlining communication, maintenance requests, and community organization with modern web technologies.</p>
-               
-               <h3>Key Features</h3>
-               <ul class="features-list">
-                   <li>Resident communication portal</li>
-                   <li>Maintenance request management</li>
-                   <li>Financial tracking and reporting</li>
-                   <li>Event scheduling and announcements</li>
-                   <li>Document management system</li>
-                   <li>Voting and decision-making tools</li>
-                   <li>Multi-language support (Hebrew/English)</li>
-               </ul>
-               
-               <h3>Technology Stack</h3>
-               <div class="project-tech">
-                   <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
-                   <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
-                   <span class="tech-tag"><i class="fab fa-css3"></i> CSS3</span>
-                   <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
-                   <span class="tech-tag"><i class="fas fa-database"></i> Local Storage</span>
-               </div>
-               
-               <h3>Challenges & Solutions</h3>
-               <p><strong>Challenge:</strong> Creating a user-friendly interface for non-technical community members.</p>
-               <p><strong>Solution:</strong> Implemented intuitive design patterns with clear navigation and multilingual support.</p>
-               
-               <div style="margin-top: 2rem;">
-                   <a href="https://github.com/vaadnet/vaadnet.github.io" target="_blank" class="download-btn">
-                       <i class="fab fa-github"></i> View on GitHub
-                   </a>
-               </div>
-           </div>
-       </div>
-   </div>
+    <div id="vaadnet-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Vaad Management System</h2>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="carousel-container">
+                    <div class="carousel" id="vaadnet-carousel">
+                        <img src="vaadnet1.png" alt="Vaadnet Screenshot 1">
+                        <img src="vaadnet1.png" alt="Vaadnet Screenshot 2">
+                    </div>
+                    <button class="carousel-nav carousel-prev" onclick="prevSlide('vaadnet')">&lt;</button>
+                    <button class="carousel-nav carousel-next" onclick="nextSlide('vaadnet')">&gt;</button>
+                </div>
+                
+                <h3>About This Project</h3>
+                <p>A comprehensive management system designed for residential committees (Vaad Bayit in Hebrew), streamlining communication, maintenance requests, and community organization with modern web technologies.</p>
+                
+                <h3>Key Features</h3>
+                <ul class="features-list">
+                    <li>Resident communication portal and messaging system</li>
+                    <li>Maintenance request management and tracking</li>
+                    <li>Financial tracking, reporting, and budget management</li>
+                    <li>Event scheduling and community announcements</li>
+                    <li>Document management and file sharing system</li>
+                    <li>Voting and decision-making tools for community decisions</li>
+                    <li>Multi-language support (Hebrew/English)</li>
+                    <li>Responsive design for mobile and desktop use</li>
+                </ul>
+                
+                <h3>Technology Stack</h3>
+                <div class="project-tech">
+                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript ES6+</span>
+                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+                    <span class="tech-tag"><i class="fab fa-css3"></i> CSS3</span>
+                    <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
+                    <span class="tech-tag"><i class="fas fa-database"></i> Local Storage</span>
+                    <span class="tech-tag"><i class="fas fa-language"></i> Internationalization</span>
+                </div>
+                
+                <h3>Challenges & Solutions</h3>
+                <p><strong>Challenge:</strong> Creating a user-friendly interface for non-technical community members of varying ages and technical abilities.</p>
+                <p><strong>Solution:</strong> Implemented intuitive design patterns with clear navigation, large buttons, and multilingual support to accommodate diverse user needs.</p>
+                
+                <p><strong>Challenge:</strong> Managing complex community data and relationships without a backend database.</p>
+                <p><strong>Solution:</strong> Utilized browser local storage with structured data management and implemented data validation and backup mechanisms.</p>
+                
+                <div style="margin-top: 2rem;">
+                    <a href="https://github.com/vaadnet/vaadnet.github.io" target="_blank" class="download-btn">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-   <div id="infrastructure-modal" class="modal">
-       <div class="modal-content">
-           <div class="modal-header">
-               <h2>IT Infrastructure Management</h2>
-               <span class="modal-close">&times;</span>
-           </div>
-           <div class="modal-body">
-               <h3>About This Project</h3>
-               <p>Led comprehensive IT infrastructure transformation at Wobi, implementing organization-wide systems, cloud migration, and security improvements that enhanced operational efficiency and reduced costs by 40%.</p>
-               
-               <h3>Key Achievements</h3>
-               <ul class="features-list">
-                   <li>Migrated legacy systems to AWS and Azure cloud platforms</li>
-                   <li>Implemented automated monitoring and alerting systems</li>
-                   <li>Designed and deployed CI/CD pipelines</li>
-                   <li>Established security protocols and compliance measures</li>
-                   <li>Automated backup and disaster recovery procedures</li>
-                   <li>Set up containerized application deployment</li>
-                   <li>Implemented Infrastructure as Code practices</li>
-               </ul>
-               
-               <h3>Technology Stack</h3>
-               <div class="project-tech">
-                   <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
-                   <span class="tech-tag"><i class="fab fa-microsoft"></i> Azure</span>
-                   <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
-                   <span class="tech-tag"><i class="fab fa-linux"></i> Linux</span>
-                   <span class="tech-tag"><i class="fab fa-docker"></i> Docker</span>
-                   <span class="tech-tag"><i class="fas fa-shield-alt"></i> Security</span>
-               </div>
-               
-               <h3>Challenges & Solutions</h3>
-               <p><strong>Challenge:</strong> Migrating critical systems with zero downtime requirements.</p>
-               <p><strong>Solution:</strong> Implemented blue-green deployment strategy with comprehensive testing and rollback procedures.</p>
-               
-               <p><strong>Challenge:</strong> Ensuring security compliance across multiple cloud platforms.</p>
-               <p><strong>Solution:</strong> Developed unified security policies and automated compliance monitoring across AWS and Azure.</p>
-           </div>
-       </div>
-   </div>
+    <div id="infrastructure-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Enterprise IT Infrastructure Management</h2>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>About This Project</h3>
+                <p>Led comprehensive IT infrastructure transformation at Wobi, implementing organization-wide systems, cloud migration, and security improvements that enhanced operational efficiency and reduced costs by 40%. This multi-year project involved migrating from legacy on-premises systems to modern cloud infrastructure.</p>
+                
+                <h3>Key Achievements</h3>
+                <ul class="features-list">
+                    <li>Successfully migrated entire infrastructure to AWS and Azure cloud platforms</li>
+                    <li>Implemented automated monitoring and alerting systems using InfluxDB and PagerDuty</li>
+                    <li>Designed and deployed comprehensive security framework with MFA and EDR</li>
+                    <li>Established virtualization environment using VMware ESXi and vSphere</li>
+                    <li>Automated backup and disaster recovery procedures with ArcServ</li>
+                    <li>Implemented CI/CD pipelines and Infrastructure as Code practices</li>
+                    <li>Configured and monitored Fortinet firewalls with automated logging</li>
+                    <li>Developed PowerShell scripts for system automation and routine tasks</li>
+                    <li>Served as technical mentor for junior administrators and escalation point</li>
+                </ul>
+                
+                <h3>Technology Stack</h3>
+                <div class="project-tech">
+                    <span class="tech-tag"><i class="fab fa-aws"></i> AWS Services</span>
+                    <span class="tech-tag"><i class="fab fa-microsoft"></i> Microsoft Azure</span>
+                    <span class="tech-tag"><i class="fas fa-server"></i> VMware ESXi</span>
+                    <span class="tech-tag"><i class="fab fa-python"></i> Python Automation</span>
+                    <span class="tech-tag"><i class="fab fa-windows"></i> PowerShell</span>
+                    <span class="tech-tag"><i class="fas fa-database"></i> InfluxDB</span>
+                    <span class="tech-tag"><i class="fas fa-bell"></i> PagerDuty</span>
+                    <span class="tech-tag"><i class="fas fa-shield-alt"></i> Security Frameworks</span>
+                    <span class="tech-tag"><i class="fas fa-network-wired"></i> Fortinet Firewalls</span>
+                </div>
+                
+                <h3>Challenges & Solutions</h3>
+                <p><strong>Challenge:</strong> Migrating critical business systems with zero downtime requirements while maintaining data integrity.</p>
+                <p><strong>Solution:</strong> Implemented blue-green deployment strategy with comprehensive testing environments, staged migration approach, and detailed rollback procedures.</p>
+                
+                <p><strong>Challenge:</strong> Ensuring security compliance across multiple cloud platforms while maintaining operational flexibility.</p>
+                <p><strong>Solution:</strong> Developed unified security policies, automated compliance monitoring across AWS and Azure, and implemented comprehensive EDR and MFA solutions.</p>
+                
+                <p><strong>Challenge:</strong> Optimizing costs while scaling infrastructure to meet growing business demands.</p>
+                <p><strong>Solution:</strong> Implemented automated resource scaling, cost monitoring tools, and infrastructure optimization that resulted in 40% cost reduction while improving performance.</p>
+                
+                <h3>Impact & Results</h3>
+                <ul class="features-list">
+                    <li>Eliminated on-premises server costs through successful cloud migration</li>
+                    <li>Reduced system downtime by 90% through automated monitoring and alerting</li>
+                    <li>Improved security posture with zero security incidents post-implementation</li>
+                    <li>Enhanced system performance and scalability for future growth</li>
+                    <li>Established robust disaster recovery capabilities with automated backups</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-   <footer>
-       <div class="container">
-           <p>&copy; 2025 Tamir Hadad. Built with passion and modern web technologies.</p>
-       </div>
-   </footer>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tamir Hadad. Built with passion and modern web technologies.</p>
+        </div>
+    </footer>
 
-   <script>
-       // Loading Screen
-       window.addEventListener('load', function() {
-           setTimeout(() => {
-               document.getElementById('loading').style.opacity = '0';
-               setTimeout(() => {
-                   document.getElementById('loading').style.display = 'none';
-               }, 500);
-           }, 1000);
-       });
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loading').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loading').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
 
-       // Theme Toggle
-       const themeToggle = document.getElementById('theme-toggle');
-       const body = document.body;
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const body = document.body;
 
-       themeToggle.addEventListener('click', () => {
-           if (body.hasAttribute('data-theme')) {
-               body.removeAttribute('data-theme');
-               themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-           } else {
-               body.setAttribute('data-theme', 'dark');
-               themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-           }
-       });
+        function toggleTheme() {
+            if (body.hasAttribute('data-theme')) {
+                body.removeAttribute('data-theme');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                themeToggleMobile.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                themeToggleMobile.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
 
-       // Smooth Scrolling
-       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-           anchor.addEventListener('click', function (e) {
-               e.preventDefault();
-               const target = document.querySelector(this.getAttribute('href'));
-               if (target) {
-                   target.scrollIntoView({
-                       behavior: 'smooth',
-                       block: 'start'
-                   });
-               }
-           });
-       });
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            themeToggleMobile.innerHTML = '<i class="fas fa-sun"></i>';
+        }
 
-       // Scroll Indicator
-       window.addEventListener('scroll', () => {
-           const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-           const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-           const scrolled = (winScroll / height) * 100;
-           document.querySelector('.scroll-indicator').style.width = scrolled + '%';
-       });
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
 
-       // Intersection Observer for Animations
-       const observerOptions = {
-           threshold: 0.1,
-           rootMargin: '0px 0px -50px 0px'
-       };
+        // Mobile Menu
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-       const observer = new IntersectionObserver((entries) => {
-           entries.forEach(entry => {
-               if (entry.isIntersecting) {
-                   entry.target.classList.add('animate');
-                   
-                   // Animate skill bars
-                   if (entry.target.classList.contains('skill-category')) {
-                       const progressBars = entry.target.querySelectorAll('.skill-progress');
-                       progressBars.forEach(bar => {
-                           const width = bar.getAttribute('data-width');
-                           setTimeout(() => {
-                               bar.style.width = width + '%';
-                           }, 200);
-                       });
-                   }
-               }
-           });
-       }, observerOptions);
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
 
-       // Observe elements
-       document.querySelectorAll('.fade-in, .timeline-item, .skill-category').forEach(el => {
-           observer.observe(el);
-       });
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
 
-       // Project Modals
-       let currentSlide = {};
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
-       function openModal(projectId) {
-           const modal = document.getElementById(projectId + '-modal');
-           modal.style.display = 'block';
-           currentSlide[projectId] = 0;
-           showSlide(projectId, 0);
-       }
+        // Scroll Indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-indicator').style.width = scrolled + '%';
 
-       function closeModal(modal) {
-           modal.style.display = 'none';
-       }
+            // Add navbar background on scroll
+            const navbar = document.getElementById('navbar');
+            if (winScroll > 100) {
+                navbar.style.background = body.hasAttribute('data-theme') ? 
+                    'rgba(26, 26, 46, 0.98)' : 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = body.hasAttribute('data-theme') ? 
+                    'rgba(26, 26, 46, 0.95)' : 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px var(--shadow)';
+            }
+        });
 
-       function showSlide(projectId, index) {
-           const carousel = document.getElementById(projectId + '-carousel');
-           const slides = carousel.querySelectorAll('img');
-           
-           if (index >= slides.length) currentSlide[projectId] = 0;
-           if (index < 0) currentSlide[projectId] = slides.length - 1;
-           
-           carousel.style.transform = `translateX(-${currentSlide[projectId] * 100}%)`;
-       }
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-       function nextSlide(projectId) {
-           currentSlide[projectId]++;
-           showSlide(projectId, currentSlide[projectId]);
-       }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    
+                    // Animate skill bars
+                    if (entry.target.classList.contains('skill-category')) {
+                        const progressBars = entry.target.querySelectorAll('.skill-progress');
+                        progressBars.forEach((bar, index) => {
+                            const width = bar.getAttribute('data-width');
+                            setTimeout(() => {
+                                bar.style.width = width + '%';
+                            }, 200 + (index * 100));
+                        });
+                    }
+                    
+                    // Animate stat numbers
+                    if (entry.target.classList.contains('stat-item')) {
+                        const statNumber = entry.target.querySelector('.stat-number');
+                        const finalNumber = parseInt(statNumber.textContent);
+                        let currentNumber = 0;
+                        const increment = finalNumber / 30;
+                        
+                        const timer = setInterval(() => {
+                            currentNumber += increment;
+                            if (currentNumber >= finalNumber) {
+                                currentNumber = finalNumber;
+                                clearInterval(timer);
+                            }
+                            statNumber.textContent = Math.floor(currentNumber) + '+';
+                        }, 50);
+                    }
+                }
+            });
+        }, observerOptions);
 
-       function prevSlide(projectId) {
-           currentSlide[projectId]--;
-           showSlide(projectId, currentSlide[projectId]);
-       }
+        // Observe elements
+        document.querySelectorAll('.fade-in, .timeline-item, .skill-category, .stat-item').forEach(el => {
+            observer.observe(el);
+        });
 
-       // Close modals when clicking outside
-       window.addEventListener('click', function(e) {
-           if (e.target.classList.contains('modal')) {
-               closeModal(e.target);
-           }
-       });
+        // Project Modals
+        let currentSlide = {};
 
-       // Close modals with close button
-       document.querySelectorAll('.modal-close').forEach(closeBtn => {
-           closeBtn.addEventListener('click', function() {
-               closeModal(this.closest('.modal'));
-           });
-       });
+        function openModal(projectId) {
+            const modal = document.getElementById(projectId + '-modal');
+            modal.style.display = 'block';
+            currentSlide[projectId] = 0;
+            showSlide(projectId, 0);
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
 
-       // Parallax Effect
-       window.addEventListener('scroll', () => {
-           const scrolled = window.pageYOffset;
-           const parallaxElements = document.querySelectorAll('.parallax');
-           
-           parallaxElements.forEach(element => {
-               const speed = 0.5;
-               element.style.transform = `translateY(${scrolled * speed}px)`;
-           });
-       });
-   </script>
+        function closeModal(modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        function showSlide(projectId, index) {
+            const carousel = document.getElementById(projectId + '-carousel');
+            const slides = carousel.querySelectorAll('img');
+            
+            if (index >= slides.length) currentSlide[projectId] = 0;
+            if (index < 0) currentSlide[projectId] = slides.length - 1;
+            
+            carousel.style.transform = `translateX(-${currentSlide[projectId] * 100}%)`;
+        }
+
+        function nextSlide(projectId) {
+            currentSlide[projectId]++;
+            showSlide(projectId, currentSlide[projectId]);
+        }
+
+        function prevSlide(projectId) {
+            currentSlide[projectId]--;
+            showSlide(projectId, currentSlide[projectId]);
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                closeModal(e.target);
+            }
+        });
+
+        // Close modals with close button
+        document.querySelectorAll('.modal-close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                closeModal(this.closest('.modal'));
+            });
+        });
+
+        // Close modals with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        closeModal(modal);
+                    }
+                });
+            }
+        });
+
+        // Parallax Effect (optimized for performance)
+        let ticking = false;
+        
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.3;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+            
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        });
+
+        // Typing effect for motto
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const mottoTitle = document.querySelector('.motto h2');
+                const originalText = mottoTitle.textContent;
+                typeWriter(mottoTitle, originalText, 50);
+            }, 1500);
+        });
+
+        // Enhanced scroll animations
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.fade-in:not(.animate)');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+
+        // Add loading state for images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+            
+            img.addEventListener('error', function() {
+                this.style.opacity = '0.5';
+                this.setAttribute('alt', 'Image failed to load');
+            });
+        });
+
+        // Performance optimization: Lazy loading for project images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Add smooth transitions for theme changes
+        function addTransition() {
+            document.body.style.transition = 'all 0.3s ease';
+            setTimeout(() => {
+                document.body.style.transition = '';
+            }, 300);
+        }
+
+        // Enhanced theme toggle with transition
+        const originalToggleTheme = toggleTheme;
+        toggleTheme = function() {
+            addTransition();
+            originalToggleTheme();
+        };
+
+        // Add keyboard navigation for accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Add focus styles for keyboard navigation
+        const style = document.createElement('style');
+        style.textContent = `
+            .keyboard-navigation *:focus {
+                outline: 2px solid var(--primary-color) !important;
+                outline-offset: 2px !important;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add initial animations
+            setTimeout(() => {
+                document.querySelector('.motto-content').classList.add('animate');
+            }, 500);
+
+            // Preload critical images
+            const criticalImages = ['taamirh.jpeg', 'aeroaid1.png', 'vaadnet1.png'];
+            criticalImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        });
+
+        // Add error handling for failed API calls or missing elements
+        window.addEventListener('error', function(e) {
+            console.log('An error occurred:', e.error);
+            // Gracefully handle errors without breaking the user experience
+        });
+
+        // Performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', function() {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    console.log('Page load time:', perfData.loadEventEnd - perfData.fetchStart, 'ms');
+                }, 0);
+            });
+        }
+    </script>
 </body>
 </html>
